@@ -1,4 +1,4 @@
-import { Children, Component } from "react";
+import { Component } from "react";
 import { createPortal } from 'react-dom';
 import { Overlay, ModalStyle } from "./Modal.styled";
 
