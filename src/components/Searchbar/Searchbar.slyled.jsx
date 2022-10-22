@@ -35,7 +35,7 @@ display: inline-block;
 width: 48px;
 height: 48px;
 border: 0;
-background-image: url('https://www.flaticon.com/svg/vstatic/svg/3917/3917061.svg?token=exp=1663605947~hmac=7fcbea0be0ee8105713c6c2c42144cbd');
+background-image: url('https://cdn-icons.flaticon.com/svg/3917/3917061.svg?token=exp=1666447742~hmac=304983c7e4d714bdb68960ba8519f650');
 background-size: 40%;
 background-repeat: no-repeat;
 background-position: center;
