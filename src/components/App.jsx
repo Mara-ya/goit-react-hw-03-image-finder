@@ -45,8 +45,9 @@ export default class App extends Component {
     try {
       this.setState({loading: true})
       const resultinImages = await fetchImages (this.state.searchQuery, this.state.page);
+      const necessaryDataImg = resultinImages.map(({id, webformatURL, largeImageURL, tags}) => ({id, webformatURL, largeImageURL, tags}));
       this.setState(prevState => ({
-        images: [...prevState.images, ...resultinImages]
+        images: [...prevState.images, ...necessaryDataImg]
       }))
     } catch (error) {
       console.log(error)
@@ -71,13 +72,17 @@ export default class App extends Component {
 
     return (
       <Wrapper>
-        {showModal && <Modal onClose={this.closeModal}>
-          <img src={largeImageURL} alt={tags} />
-          </Modal>}
+        {showModal && 
+          <Modal onClose={this.closeModal}>
+            <img src={largeImageURL} alt={tags} />
+          </Modal>
+        }
         <Searchbar onSubmit={handleSubmit}/>
-        <ImageGallery>
-          {images && <ImageGalleryItem images={images} openModal={openModal}/>}
-        </ImageGallery>
+        {images.length > 0 && 
+          <ImageGallery>
+            <ImageGalleryItem images={images} openModal={openModal}/>
+          </ImageGallery>
+        }
         {images.length > 0 && !loading && <BtnLoadMore onClick={handleClick}/>}
         {loading && <Loader/>}
       </Wrapper>
